@@ -1,0 +1,45 @@
+#========================================================
+# UserConstraintFile for the Spartan-3 Starter Board
+#========================================================
+
+#========================================================
+# Timing constraint of the 50-MHz onboard oscillator
+#========================================================
+
+TIMESPEC "TS_clk_in" = PERIOD "I_clk" 20 ns HIGH 50 %;
+NET "I_clk" TNM_NET = "I_clk";
+NET "I_clk" LOC = "T9";
+
+#========================================================
+# 8 discrete leds
+#========================================================
+
+NET "O_leds<0>" LOC = "K12";
+NET "O_leds<1>" LOC = "P14";
+NET "O_leds<2>" LOC = "L12";
+NET "O_leds<3>" LOC = "N14";
+NET "O_leds<4>" LOC = "P13";
+NET "O_leds<5>" LOC = "N12";
+NET "O_leds<6>" LOC = "P12";
+NET "O_leds<7>" LOC = "P11";
+
+#========================================================
+# 4-digit time-multiplexed 7-segment LED display
+#========================================================
+
+# digit enable
+NET "O_an<0>" LOC = "D14";
+NET "O_an<1>" LOC = "G14";
+NET "O_an<2>" LOC = "F14";
+NET "O_an<3>" LOC = "E13";
+
+# 7-segment led segments
+NET "O_sseg<0>" LOC = "N16"; # segment g
+NET "O_sseg<1>" LOC = "F13"; # segment f
+NET "O_sseg<2>" LOC = "R16"; # segment e
+NET "O_sseg<3>" LOC = "P15"; # segment d
+NET "O_sseg<4>" LOC = "N15"; # segment c
+NET "O_sseg<5>" LOC = "G13"; # segment b
+NET "O_sseg<6>" LOC = "E14"; # segment a
+NET "O_sseg<7>" LOC = "P16"; # dicimal point
+
