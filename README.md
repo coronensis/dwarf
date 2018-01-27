@@ -2,8 +2,7 @@
 
 ## Overview
 
-
-The main purpose of this project is to explore CPU design and provide a minimalist implementation. 
+The main purpose of this project is to explore CPU design and provide a minimalist implementation.
 It is utterly useless for anything but studying/teaching the structure and  implementation of a simple
 processor.
 
@@ -13,13 +12,13 @@ as a source of inspiration.
 The CPU proper implementation is less than 1000 lines of VHDL code, including comments, runs at the
 magnificent speed of 1 Hz (yes, ONE Hertz) and has an incredible memory size of 1024 16-bit words.
 
-###Motivation
+## Motivation
 
 I am not a hardware designer, I am a software developer (that is the reason why the HW design probably
 will look silly to profesional HW developers). Yet I always felt the urge to build my own CPU.
 So after spending quite some time studying digital hardware design and HDL as well as CPU design and
 working every now and then for a few hours on this project, I finally...
-...got tired of it, brought it to a raw but functional state and threw it into the public. 
+...got tired of it, brought it to a raw but functional state and threw it into the public.
 
 Maybe it will be useful to someone.
 
@@ -31,6 +30,7 @@ But what actually motivated me to do this is:
 4.) Programmer folklore - as found here for instance:
 
 [The story of Mel](http://www.pbm.com/~lindahl/mel.html)
+
 [Real Programmers write in Fortran.](http://www.pbm.com/~lindahl/real.programmers.html)
 
 "...in this decadent era of Lite beer, hand calculators and "user-friendly" software but back in the Good Old Days,
@@ -43,10 +43,10 @@ describe, as best I can through the generation gap, how a Real Programmer wrote 
 
 So...
 If you can't do it in C, do it in assembly language. If you can't do it in assembly language, do it in VHDL. If you can't
-do it in VHDL it isn't worth doing. (Paraphrased) 
+do it in VHDL it isn't worth doing. (Paraphrased)
 
 
-###General Characteristics
+## General Characteristics
 
 + RISC (MISC probably more appropriate). HAZARD / High "RISC" actually if planning to use it for anything meaningful :)
 + Load-store architecture
@@ -83,23 +83,24 @@ Additional non-features:
 + **No** MMU
 
 And hence **No** vulnerability to [Meltdown and Spectre](https://meltdownattack.com/).
+
 At least one quality to be attributed to this CPU :)
 
-### Demostration Video
+## Demostration Video
 
 Take a look at **dwarf.mov** to see the CPU in action. It executes the **firmware.s** demo program.
 The digits on the seven-segment display show the instruction counter. The dots on the seven-segment display show the
 CPU clock. The LEDs display the output of the demo program.
 
 
-### Documentation
+## Documentation
 
 Check **documentation.txt** for a rought description of the CPU, the instruction set and the tools
 involved in implementing the CPU on real hardware (an FPGA in this case) as well as developing software for it.
 There is also a raw schematic diagram in **dwarf.dia**
 
 
-### Future Plans / TODOs
+## Future Plans / TODOs
 
 Probably nothing will happen from my side in the foreseeable future due to lack of time and lost interest in the topic.
 You are highly welcome to take the project further. I will provide assistance to the best of my possibilities.
@@ -140,6 +141,7 @@ Developed under GNU/Linux - [Ubuntu](https://www.ubuntu.com/) distribution
 Recommended reading
 
 [From NAND to Tetris](http://www.nand2tetris.org/)
+
 [FPGA Prototyping by VHDL Examples: Xilinx Spartan-3 Version](https://www.amazon.com/FPGA-Prototyping-VHDL-Examples-Spartan-3/dp/0470185317)
 
 ## Homepage And Source Code Repository
