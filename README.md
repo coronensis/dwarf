@@ -24,10 +24,10 @@ Maybe it will be useful to someone.
 
 But what actually motivated me to do this is:
 
-1.) Fun
-2.) Learning
-3.) The "because I can" attitude
-4.) Programmer folklore - as found here for instance:
++ Fun
++ Learning
++ The "because I can" attitude
++ Programmer folklore - as found here for instance:
 
 [The story of Mel](http://www.pbm.com/~lindahl/mel.html)
 
