@@ -34,7 +34,7 @@ But what actually motivated me to do this is:
 
 [Real Programmers write in Fortran.](http://www.pbm.com/~lindahl/real.programmers.html)
 
-"...in this decadent era of Lite beer, hand calculators and "user-friendly" software but back in the Good Old Days,
+"Real Programmers write in Fortran in this decadent era of Lite beer, hand calculators and "user-friendly" software but back in the Good Old Days,
 when the term "software" sounded funny and Real Computers were made out of drums and vacuum tubes,
 Real Programmers wrote in machine code. Not Fortran. Not RATFOR. Not, even, assembly language. Machine Code.
 Raw, unadorned, inscrutable hexadecimal numbers. Directly."
@@ -69,7 +69,7 @@ Therefore:
 + **No** interrupts
 + **No** peripheral hardware like timers, UARTs, IO ports, etc.
 
-Well, actually the glue that binds it to the Development board also provides outputs to four seven-segment displays
+Well, actually the glue that binds it to the development board also provides outputs to four seven-segment displays
 and eight LEDs
 
 Further on...
@@ -95,7 +95,7 @@ CPU clock. The LEDs display the output of the demo program.
 
 ## Documentation
 
-Check **documentation.txt** for a rought description of the CPU, the instruction set and the tools
+Check **documentation.txt** for a rough description of the CPU, the instruction set and the tools
 involved in implementing the CPU on real hardware (an FPGA in this case) as well as developing software for it.
 There is also a raw schematic diagram in **dwarf.dia**
 
