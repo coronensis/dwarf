@@ -6,18 +6,19 @@ The main purpose of this project is to explore CPU design and provide a minimali
 It is utterly useless for anything but studying/teaching the structure and  implementation of a simple
 processor.
 
-It is loosely based on the MIPS I(tm) architecture and used the Plasma CPU developed by Steve Rhoads
+It is loosely based on the MIPS I architecture and used the Plasma CPU developed by Steve Rhoads
 as a source of inspiration.
 
-The CPU proper implementation is less than 1000 lines of VHDL code, including comments, runs at the
+The CPU proper implementation is less than 1000 lines of VHDL code (including comments), runs at the
 magnificent speed of 1 Hz (yes, ONE Hertz) and has an incredible memory size of 1024 16-bit words.
 
 ## Motivation
 
 I am not a hardware designer, I am a software developer (that is the reason why the HW design probably
-will look silly to profesional HW developers). Yet I always felt the urge to build my own CPU.
-So after spending quite some time studying digital hardware design and HDL as well as CPU design and
+will look silly to professional HW designers). Yet I always felt the urge to build my own CPU.
+After spending quite some time studying digital hardware design and HDL as well as CPU design and
 working every now and then for a few hours on this project, I finally...
+
 ...got tired of it, brought it to a raw but functional state and threw it into the public.
 
 Maybe it will be useful to someone.
@@ -55,7 +56,7 @@ do it in VHDL it isn't worth doing. (Paraphrased)
 + General-purpose register machine
 + Delay slots (arise from previous presence of a pipeline that was removed)
 + Addressing modes: Immediate, register, absolute memory
-+ Alligned 16 bit word addressing only
++ Alligned 16-bit word addressing only
 + Simple scalar architecture - straight forward sequential fetch-decode-execute operation
 
 No bells and whistles and no fancy stuff
@@ -74,7 +75,6 @@ and eight LEDs
 Further on...
 Additional non-features:
 
-+ **No** superscalar features
 + **No** cache
 + **No** pipeline
 + **No** branch prediction
@@ -125,6 +125,11 @@ Turn it into a SoC with
 + UART
 + Mouse
 
+Improve the development environment
+
++ Make the assembler more useful
++ Add a compiler. [The Tiny C Compiler](https://bellard.org/tcc/) comes to mind. Or even better: The [Obfuscated Tiny C Compiler](https://bellard.org/otcc)
+
 Add all the other bells and whistles it currently misses.
 Use your imagination.
 
@@ -133,8 +138,9 @@ Use your imagination.
 Developed under GNU/Linux - [Ubuntu](https://www.ubuntu.com/) distribution
 
 + Uses the [Xilinx  ISE WebPACK Design Software v 14.7](https://www.xilinx.com/products/design-tools/ise-design-suite/ise-webpack.html) for synthesis
-+ Uses the [xc3sprog suite of utilities](http://xc3sprog.sourceforge.net/) for downloading the FPGA configuration bitstream
-+ Tested on [The Spartan®-3 Starter Board](https://store.digilentinc.com/spartan-3-board-retired/)
++ Uses the [xc3sprog suite of utilities](http://xc3sprog.sourceforge.net/) and
++ The [JTAG-HS1 programming cable](https://store.digilentinc.com/jtag-hs1-programming-cable-limited-time/) for downloading the FPGA configuration bitstream
++ Tested on the [Spartan®-3 Starter Board](https://store.digilentinc.com/spartan-3-board-retired/)
 
 ## References
 
@@ -143,6 +149,8 @@ Recommended reading
 [From NAND to Tetris](http://www.nand2tetris.org/)
 
 [FPGA Prototyping by VHDL Examples: Xilinx Spartan-3 Version](https://www.amazon.com/FPGA-Prototyping-VHDL-Examples-Spartan-3/dp/0470185317)
+
+[The Plasma CPU](https://opencores.org/project,plasma)
 
 ## Homepage And Source Code Repository
 
