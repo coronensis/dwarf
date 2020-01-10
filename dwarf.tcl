@@ -231,6 +231,13 @@ proc add_source_files {} {
 
    puts "$myScript: Adding sources to project..."
 
+   xfile add "decoder.vhd"
+   xfile add "alu.vhd"
+   xfile add "pc.vhd"
+   xfile add "ram.vhd"
+   xfile add "regs.vhd"
+   xfile add "memctrl.vhd"
+   xfile add "dwarf.vhd"
    xfile add "cpu.vhd"
    xfile add "leds.vhd"
    xfile add "hex_to_sseg.vhd"

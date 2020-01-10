@@ -3,14 +3,16 @@
 ## Overview
 
 The main purpose of this project is to explore CPU design and provide a minimalist implementation.
-It is utterly useless for anything but studying/teaching the structure and  implementation of a simple
+It is utterly useless for anything but studying/teaching the structure and implementation of a simple
 processor.
 
 It is loosely based on the MIPS I architecture and used the Plasma CPU developed by Steve Rhoads
 as a source of inspiration.
 
-The CPU proper implementation is less than 1000 lines of VHDL code (including comments), runs at the
-magnificent speed of 1 Hz (yes, ONE Hertz) and has an incredible memory size of 1024 16-bit words.
+The CPU proper implementation is rather small (before I decomposed the CPU into the constituent
+functional units it used to be less than 1000 lines of VHDL code (including comments and blanks),
+runs at the magnificent speed of 1 Hz (yes, ONE Hertz) and has an incredible memory size of 1024 16-bit words.
+You can find the single-file CPU implementation in previous revisions.
 
 ## Motivation
 
@@ -44,7 +46,7 @@ describe, as best I can through the generation gap, how a Real Programmer wrote 
 
 So...
 If you can't do it in C, do it in assembly language. If you can't do it in assembly language, do it in VHDL. If you can't
-do it in VHDL it isn't worth doing. (Paraphrased)
+do it in VHDL do it with a soldering station. If you can't do it with a soldering station it isn't worth doing.
 
 
 ## General Characteristics
@@ -54,7 +56,7 @@ do it in VHDL it isn't worth doing. (Paraphrased)
 + 16-bit fixed instruction length
 + Von Neumann architecture
 + General-purpose register machine
-+ Delay slots (arise from previous presence of a pipeline that was removed)
++ Two-stage pipeline (A new instruction is fetched while the current one is decoded/executed)
 + Addressing modes: Immediate, register, absolute memory
 + Alligned 16-bit word addressing only
 + Simple scalar architecture - straight forward sequential fetch-decode-execute operation
@@ -76,7 +78,6 @@ Further on...
 Additional non-features:
 
 + **No** cache
-+ **No** pipeline
 + **No** branch prediction
 + **No** out of order execution
 + **No** speculative execution
@@ -91,7 +92,6 @@ At least one quality to be attributed to this CPU :)
 Take a look at **dwarf.mov** to see the CPU in action. It executes the **firmware.s** demo program.
 The digits on the seven-segment display show the instruction counter. The dots on the seven-segment display show the
 CPU clock. The LEDs display the output of the demo program.
-
 
 ## Documentation
 
@@ -131,6 +131,7 @@ Improve the development environment
 + Add a compiler. [The Tiny C Compiler](https://bellard.org/tcc/) comes to mind. Or even better: The [Obfuscated Tiny C Compiler](https://bellard.org/otcc)
 
 Add all the other bells and whistles it currently misses.
+
 Use your imagination.
 
 ## Software / Hardware

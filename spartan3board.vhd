@@ -36,6 +36,8 @@ use ieee.std_logic_unsigned.all;
 
 entity spartan3board is
 	port(I_clk        : in std_logic;
+	     I_reset      : in std_logic;
+	     I_switches   : in std_logic_vector (7 downto 0);
 
 	     O_leds       : out std_logic_vector (7 downto 0);
 	     O_an         : out std_logic_vector (3 downto 0);
@@ -51,6 +53,9 @@ architecture logic of spartan3board is
 	signal data_w              : std_logic_vector(15 downto 0);
 	signal debug_data          : std_logic_vector(15 downto 0);
 	signal enable_leds_write   : std_logic;
+	signal enable_decoder      : std_logic;
+	signal pause_cpu     	   : std_logic;
+	signal take_branch     	   : std_logic;
 
 begin
 	-- From the 50 MHz clock generate a 1 (one!) Hz clock so to be able to
@@ -59,7 +64,9 @@ begin
 	begin
 		if rising_edge(I_clk) then
 			-- 50.000.000 in binary
-			if prescaler < "10111110101111000010000000" then
+
+--			if prescaler < "10111110101111000010000000" then
+			if prescaler < "00010011000100101101000000" then
 				prescaler <= prescaler + 1;
 			else
 				prescaler <= (others => '0');
@@ -71,12 +78,17 @@ begin
 	-- Instantiate and connect the CPU
 	cpu: entity work.cpu(logic)
 	port map (
-		 I_clk             => clk
+		 I_clk            => clk
+		,I_reset          => I_reset
+		,I_switches	  => I_switches
 
-		,O_address         => address
-		,O_write_operation => write_operation
-		,O_data_w          => data_w
-		,O_debug_data      => debug_data
+		,O_mem_address    => address
+		,O_mem_data_write => data_w
+		,O_mem_we 	  => write_operation
+		,O_debug_data     => debug_data
+		,O_enable_decoder => enable_decoder
+		,O_pause_cpu	  => pause_cpu
+		,O_take_branch	  => take_branch
 	);
 
 	-- Instantiate and connect the seven segment display
@@ -85,6 +97,9 @@ begin
 		 I_clk_slow   => clk
 		,I_clk_fast   => I_clk
 		,I_data       => debug_data
+		,I_enable_decoder => enable_decoder
+		,I_pause_cpu => pause_cpu
+		,I_take_branch => take_branch
 
 		,O_an         => O_an
 		,O_sseg       => O_sseg

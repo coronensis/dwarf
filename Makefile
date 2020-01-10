@@ -33,13 +33,14 @@ all: clean firmware bitstream
 firmware: asm.c mkramimg.c
 	gcc -Wall -Werror -g -o asm asm.c
 	gcc -Wall -Werror -g -o mkramimg mkramimg.c
-	./asm -f firmware.s >firmware.txt
-	./mkramimg cpu.vhd firmware.txt
+	./asm -l -f firmware.asm >firmware.lst
+	./asm -f firmware.asm >firmware.txt
+	./mkramimg ram.vhd firmware.txt
 
 bitstream:
 	./synthesize
 
-config:
+install:
 	xc3sprog -c jtaghs1 -v -p 0 spartan3board.bit
 
 clean:
@@ -54,5 +55,7 @@ clean:
 	       	spartan3board.unroutes spartan3board_usage.xml spartan3board.ut spartan3board.xpi \
 		spartan3board.xst spartan3board_xst.xrpt dwarf.xise usage_statistics_webtalk.html \
 		spartan3board_vhdl.prj webtalk.log webtalk_pn.xml xlnx_auto_0_xdb _xmsgs xst .Xil \
-		asm mkramimg firmware.txt
+		cpu_tb_beh.prj cpu_tb_isim_beh.exe cpu_tb_isim_beh.wdb cpu_tb_stx_beh.prj fuse.log \
+	       	fuse.xmsgs fuseRelaunch.cmd isim.cmd isim.log spartan3board_envsettings.html xilinxsim.ini \
+		isim iseconfig spartan3board_summary.html asm mkramimg firmware.txt firmware.lst
 

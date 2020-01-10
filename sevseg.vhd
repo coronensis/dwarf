@@ -14,6 +14,9 @@ entity sevseg is
 	port (	I_clk_slow  : in std_logic;
 		I_clk_fast  : in std_logic;
 		I_data      : in std_logic_vector (15 downto 0);
+		I_enable_decoder  : in std_logic;
+		I_pause_cpu  : in std_logic;
+		I_take_branch : in std_logic;
 
 		O_an        : out std_logic_vector (3 downto 0);
 		O_sseg      : out std_logic_vector (7 downto 0)
@@ -39,21 +42,21 @@ begin
 	-- instance for 4 LSBs of input
 	sseg_unit_0: entity work.hex_to_sseg(logic)
 	port map (I_hex  => data_write_reg(3 downto 0)
-		 ,I_dp   => not I_clk_slow
+		 ,I_dp   => not I_enable_decoder
 		 ,O_sseg => led0
 	 	);
 
 	-- instance for 4 MSBs of input
 	sseg_unit_1: entity work.hex_to_sseg(logic)
 	port map(I_hex  => data_write_reg(7 downto 4)
-		,I_dp   => not I_clk_slow
+		,I_dp   => not I_take_branch
 		,O_sseg => led1
 		);
 
 	-- instance for 4 LSBs of incremented value
 	sseg_unit_2: entity work.hex_to_sseg(logic)
 	port map(I_hex  => data_write_reg(11 downto 8)
-		,I_dp   => not I_clk_slow
+		,I_dp   => not I_pause_cpu
 		,O_sseg => led2
 		);
 

@@ -365,7 +365,7 @@ main (int argc, char **argv)
 						add_symbol (&token[1], val);
 
 					if (pass && list)
-						printf ("\t\t\%s %s\n", &token[1], par);
+						printf ("\t\t%s %s\n", &token[1], par);
 				}
 				else if (token[0] == '$') {
 					char *par = NULL;
