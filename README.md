@@ -11,8 +11,8 @@ as a source of inspiration.
 
 The CPU proper implementation is rather small (before I decomposed the CPU into the constituent
 functional units it used to be less than 1000 lines of VHDL code (including comments and blanks),
-runs at the magnificent speed of 1 Hz (yes, ONE Hertz) and has an incredible memory size of 1024 16-bit words.
-You can find the single-file CPU implementation in previous revisions.
+runs at the magnificent speed of ~1 Hz (yes, ONE Hertz) and has an incredible memory size of 1024 16-bit words.
+You can find the single-file CPU implementation in older revisions.
 
 ## Motivation
 
@@ -104,6 +104,9 @@ There is also a raw schematic diagram in **dwarf.dia**
 
 Probably nothing will happen from my side in the foreseeable future due to lack of time and lost interest in the topic.
 You are highly welcome to take the project further. I will provide assistance to the best of my possibilities.
+
+*Edit 01/2020:* Meanwhile my interrest in the topic revived.  [Rival](https://github.com/coronensis/rival), the follow-up
+project to Dwarf, will (or already did) implement the following suggestions.
 
 Suggestions for further development:
 

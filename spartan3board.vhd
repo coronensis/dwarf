@@ -63,10 +63,7 @@ begin
 	clk_div : process is
 	begin
 		if rising_edge(I_clk) then
-			-- 50.000.000 in binary
-
---			if prescaler < "10111110101111000010000000" then
-			if prescaler < "00010011000100101101000000" then
+			if prescaler < "10111110101111000010000000" then
 				prescaler <= prescaler + 1;
 			else
 				prescaler <= (others => '0');
